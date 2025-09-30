@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: secureApiExample
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASS}
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  security:
+    jwt:
+      secret_key: ${JWT_SECRET_KEY}
+      access_token_lifetime_ms: 1800000 # 30 min
