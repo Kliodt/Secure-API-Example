@@ -30,6 +30,7 @@ jobs:
       - name: Run SpotBugs
         run: ./gradlew spotbugsMain
 
+      - run: echo "JAVA_HOME=$JAVA_HOME" >> $GITHUB_ENV
 
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/gradle-jdk17@master
