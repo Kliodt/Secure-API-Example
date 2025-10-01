@@ -30,9 +30,21 @@ jobs:
       - name: Run SpotBugs
         run: ./gradlew spotbugsMain
 
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/gradle@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+      - name: Upload result to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: snyk.sarif
+
 
       - name: Upload reports
         uses: actions/upload-artifact@v4
         with:
           name: analysis-reports
-          path: build/reports/spotbugs/spotbugs.html
+          path: |
+            build/reports/spotbugs/spotbugs.html
+            build/reports/spotbugs/spotbugs.html
