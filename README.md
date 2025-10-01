@@ -124,14 +124,48 @@ public class UserDTO {
   Минимальная длинна пароля - 8 символов, что дает дополнительную защиту
 
 
-## Отчеты SAST/SCA
+## Отчет spotbugs
 
-todo
+![alt text](assets/README/1759331800088_image.png)
+
+Документ: [spotbugs.html](assets/spotbugs.html)
+
+
+## Отчет github dependabot
+
+![alt text](assets/README/1759331977926_image.png)
+
+Была найдена одна уязвимость. Но при проверке `./gradlew dependencies` 
+
+```
+./gradlew dependencies
+
+...
+
+spotbugs - configuration for the SpotBugs engine
+\--- com.github.spotbugs:spotbugs:4.9.6
+
+      ...
+      
+     +--- org.apache.bcel:bcel:6.10.0
+     |    \--- org.apache.commons:commons-lang3:3.14.0 -> 3.17.0
+     +--- com.github.stephenc.jcip:jcip-annotations:1.0-1
+     +--- org.dom4j:dom4j:2.2.0
+     +--- org.apache.commons:commons-lang3:3.18.0 -> 3.17.0
+     +--- org.apache.commons:commons-text:1.14.0
+     |    \--- org.apache.commons:commons-lang3:3.18.0 -> 3.17.0
+     ...
+
+```
+
+оказалось что эту зависимость подтягивает только
+плагин `com.github.spotbugs`, а эта значит уязвимость не 
+страшна во время выполнения программы. 
+Поэтому ничего с ней не делал.
 
 ## Последний успешный пайплайн
 
-todo
-
+https://github.com/Kliodt/Secure-API-Example/actions
 
 
 ## Примеры запросов (Postman)
