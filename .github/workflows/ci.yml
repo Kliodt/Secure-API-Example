@@ -22,12 +22,6 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
-
-        # https://github.com/gradle/actions/blob/main/docs/dependency-submission.md
-      - name: Generate and submit dependency graph
-        uses: gradle/actions/dependency-submission@v4
-
-
       - name: Build
         run: ./gradlew build
 
