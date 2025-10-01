@@ -18,5 +18,6 @@ public class User {
 
     private String encodedPassword;
 
+    @Column(columnDefinition = "text")
     private String favoriteQuote;
 }

@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-analyze:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 17
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+
+        # https://github.com/gradle/actions/blob/main/docs/dependency-submission.md
+      - name: Generate and submit dependency graph
+        uses: gradle/actions/dependency-submission@v4
+
+
+      - name: Build
+        run: ./gradlew build
+
+      - name: Run SpotBugs
+        run: ./gradlew spotbugsMain
+
+
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: analysis-reports
+          path: build/reports/spotbugs/spotbugs.html
