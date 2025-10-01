@@ -30,8 +30,9 @@ jobs:
       - name: Run SpotBugs
         run: ./gradlew spotbugsMain
 
+
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/gradle@master
+        uses: snyk/actions/gradle-jdk17@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
@@ -46,5 +47,4 @@ jobs:
         with:
           name: analysis-reports
           path: |
-            build/reports/spotbugs/spotbugs.html
             build/reports/spotbugs/spotbugs.html
