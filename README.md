@@ -124,14 +124,18 @@ public class UserDTO {
   Минимальная длинна пароля - 8 символов, что дает дополнительную защиту
 
 
-## Отчеты SAST/SCA
+## Отчет spotbugs
 
-todo
+![alt text](assets/README/1759331800088_image.png)
+
+Документ: [spotbugs.html](assets/spotbugs.html)
+
+
+
 
 ## Последний успешный пайплайн
 
-todo
-
+https://github.com/Kliodt/Secure-API-Example/actions
 
 
 ## Примеры запросов (Postman)
