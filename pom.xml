@@ -149,7 +149,6 @@
                 <configuration>
                     <xmlOutput>false</xmlOutput>
                     <htmlOutput>true</htmlOutput>
-                    <outputFile>${project.build.directory}/reports/spotbugs/spotbugs.html</outputFile>
                 </configuration>
             </plugin>
         </plugins>

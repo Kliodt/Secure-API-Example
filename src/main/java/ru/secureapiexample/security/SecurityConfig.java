@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    private final JWTFilter jwtFilter;
+    private final JWTService jwtService;
 
     private HttpSecurity commonFilters(HttpSecurity http) throws Exception {
         return http
@@ -35,7 +35,7 @@ public class SecurityConfig {
     public SecurityFilterChain filterChainAuthenticated(HttpSecurity http) throws Exception {
         return commonFilters(http)
                 .securityMatcher("/api/**")
-                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(new JWTFilter(jwtService), UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
                 .build();
     }
