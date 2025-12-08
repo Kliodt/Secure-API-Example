@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class JWTFilter extends OncePerRequestFilter {
 
-    private final JWTService jwtService;
+    private static final JWTService jwtService = new JWTService();
 
     @Override
     protected void doFilterInternal(
