@@ -124,12 +124,19 @@ public class UserDTO {
   Минимальная длинна пароля - 8 символов, что дает дополнительную защиту
 
 
-## Отчет spotbugs
+## Отчет SpotBugs
 
-![alt text](assets/README/1759331800088_image.png)
+![alt text](assets/README/1765237674512_image.png)
 
 Документ: [spotbugs.html](assets/spotbugs.html)
 
+
+
+## Отчет Snyk
+
+![alt text](assets/README/1765237719811_image.png)
+
+Документ: [snyk.html](assets/snyk.html)
 
 
 
